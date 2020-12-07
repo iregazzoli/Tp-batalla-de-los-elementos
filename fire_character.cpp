@@ -9,24 +9,24 @@ FireCharacter::FireCharacter(string name, int shield, int health, int energy) :
 
 void FireCharacter::eat(){
   Character::eat();
-  std::cout << "Energia antes de comer: " << energy << '\n';
+  std::cout << "Vida antes de comer: " << health << '\n';
   if(have_wood){
 
-    if(energy == 20){
-      std::cout << "Energia llena no fue posible alimentar este personaje." << '\n';
+    if(health == 100){
+      std::cout << "Vida llena no fue posible alimentar este personaje." << '\n';
       return;
     }
 
-    else if(energy > 5 && energy < 20){ // If eating goes beyond the limit (20)
-      std::cout << "La energia recuperada fue: " << 20 - energy << '\n';
-      energy = 20;
-      std::cout << "Energia actual: " << energy << '\n';
+    else if(health > 75 && health < 100){ // If eating goes beyond the limit (20)
+      std::cout << "La Vida recuperada fue: " << 100 - health << '\n';
+      health = 100;
+      std::cout << "Vida actual: " << health << '\n';
     }
 
     else{
-      energy += 15;
-      std::cout << "La energia recuperada fue: 15." << '\n';
-      std::cout << "Energia actual: " << energy << '\n';
+      health += 15;
+      std::cout << "La Vida recuperada fue: 15." << '\n';
+      std::cout << "Vida actual: " << health << '\n';
     }
     std::cout << "El personaje: " << name << " fue alimentado con madera."<< '\n';
   }

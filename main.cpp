@@ -1,12 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h> // includes random
-#include "string"
+#include <cctype>
 #include "list.h"
 using namespace std;
 
-//capaz deberia usar una funcion para abrir el csv y otra para cargarlo?
-bool Load_list_from_csv(List* characters){
+bool load_list_from_csv(List* characters){
   ifstream file;
   file.open("personajes.csv");
 
@@ -18,7 +17,7 @@ bool Load_list_from_csv(List* characters){
   else{
 
     if(file.peek() == EOF){
-      cout << "ERROR!: el archivo esta vacio, cerrando el programa." << endl;
+      cout << "ERROR!: el archivo personajes.csv está vacio, cerrando el programa." << endl;
       return false;
     }
 
@@ -36,19 +35,19 @@ bool Load_list_from_csv(List* characters){
       getline(file, health, '\n');
       energy = rand() % 20;
 
-      if(element == "Fuego"){
+      if(element == "fuego"){
           characters->add_character(new FireCharacter(name, stoi(shield), stoi(health), energy));
       }
 
-      else if(element == "Agua"){
+      else if(element == "agua"){
           characters->add_character(new WaterCharacter(name, stoi(shield), stoi(health), energy));
       }
 
-      else if(element == "Aire"){
+      else if(element == "aire"){
           characters->add_character(new AirCharacter(name, stoi(shield), stoi(health), energy));
       }
 
-      else if(element == "Tierra"){
+      else if(element == "tierra"){
         characters->add_character(new RockCharacter(name, stoi(shield), stoi(health), energy));
       }
 
@@ -83,7 +82,6 @@ void add_character(List* characters){
   int health = rand() % 90 + 10;
   int energy = rand() % 20;
 
-
   cout << "Ingrese el nombre del nuevo personaje: ";
   cin >> name;
 
@@ -106,7 +104,7 @@ void add_character(List* characters){
 
 void remove_character(List* characters){
   string name;
-  std::cout << "Ingrese el name del personaje que desea eliminar: ";
+  std::cout << "Ingrese el nombre del personaje que desea eliminar: ";
   std::cin >> name;
   characters->remove_character(name);
 }
@@ -153,12 +151,25 @@ bool interpretate_user_input(int user_input, List* characters){
   return false;
 }
 
-
+bool check_input(char user_input){
+  if(!isdigit(user_input)){
+    return false;
+  }
+  else{
+    int int_user_input = user_input - '0';  //converts from char to int
+    if(int_user_input < 1  || int_user_input > 6){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+}
 
 int main(){
     List characters;
 
-    if (!Load_list_from_csv(&characters)){ //segmentation error cuando el csv esta vacio
+    if (!load_list_from_csv(&characters)){ 
       return 0;
     }
 
@@ -166,20 +177,16 @@ int main(){
 
     while(!end_program){
 
-      int user_input;
-
+      string user_input;
       show_menu();
-
       cin >> user_input;
 
-      while(user_input < 1  || user_input > 6){ // No verifica si lo ingresado no es un int
-        std::cout << "opcion invalida por favor ingrese un valor entre 1 a 6" << '\n';
+      while(!check_input(user_input[0])){
+        std::cout << "opción invalida por favor ingrese un valor entre 1 a 6" << '\n';
         cin >> user_input;
-
       }
-
-      end_program = interpretate_user_input(user_input, &characters);
+      int int_user_input = user_input[0] - '0';
+      end_program = interpretate_user_input(int_user_input, &characters);
     }
-
   return 0;
 }

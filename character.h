@@ -12,30 +12,39 @@ protected:
   int energy;
 
 public:
+  //PRE: -
+  //POS: creates a characer who has name = " ", shield = 0, health = 0, energy = 0.
   Character();
+
+  //PRE: -
+  //POS: creates a character who has name = "name", shield = first "shield", health = second "health", energy = third "energy".
   Character(string name, int shield, int health, int energy);
 
-  Character(const Character &personaje);
+  //PRE: character has to be a valid pointer/adress of a character.
+  //POS: creates a character who has the same name, shield, health and energy than personaje.
+  Character(const Character &character);
 
   //PRE: -
-  //POS: return the element of the character
+  //POS: returns a string = "no element".
    virtual string get_element();
   //PRE: -
-  //POS: return the name of the character
+  //POS: returns the name of the character.
   string get_name();
 
   //PRE: -
-  //POS: return the shield of the character
+  //POS: returns an int equals to the shield of the character.
   int get_shield();
 
   //PRE: -
-  //POS: return the health of the character
+  //POS: returns an int equals to the health of the character.
   int get_health();
 
   //PRE: -
-  //POS: return the energy of the character
+  //POS: returns an int equals to the energy of the character.
   int get_energy();
 
+  //PRE: -
+  //POS: -
   virtual void eat();
 };
 #endif

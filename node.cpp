@@ -2,7 +2,6 @@
 #include "node.h"
 
 Node::Node(Character* character){
-  // std::cout << character->get_name() << '\n'; 
   this->character = character;
   next_node = 0;
 }
@@ -16,5 +15,5 @@ Node* Node::get_next_node(){
 }
 
 Character* Node::get_character(){
-  return character; //returns a pointer
+  return character; // returns a pointer to a character.
 }
