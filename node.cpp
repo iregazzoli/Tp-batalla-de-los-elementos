@@ -1,4 +1,3 @@
-#include "character.h"
 #include "node.h"
 
 Node::Node(Character* character){

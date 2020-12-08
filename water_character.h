@@ -1,6 +1,6 @@
 #ifndef WATER_CHARACTER_H
 #define WATER_CHARACTER_H
-#include "character.h"
+
 
 class WaterCharacter: public Character{
 private: //Is debatable that this could be summarize in one field and it would follow the assigment, but i decided to do them separetly
@@ -15,7 +15,7 @@ public:
   //PRE: -
   //POS: returns a string = "Water".
   string get_element();
-  
+
   //PRE: -
   //POS: feeds the character. (?
   void eat();

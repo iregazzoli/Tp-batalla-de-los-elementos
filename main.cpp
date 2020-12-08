@@ -3,6 +3,12 @@
 #include <stdlib.h> // includes random
 #include <cctype>
 #include "list.h"
+#include "node.h"
+#include "character.h"
+#include "fire_character.h"
+#include "water_character.h"
+#include "air_character.h"
+#include "rock_character.h"
 using namespace std;
 
 bool load_list_from_csv(List* characters){
@@ -145,6 +151,7 @@ bool interpretate_user_input(int user_input, List* characters){
     feed_character(characters);
     break;
   case 6:
+  std::cout << "Gracias por jugar!" << '\n';
     return true;
     break;
   }
@@ -169,7 +176,7 @@ bool check_input(char user_input){
 int main(){
     List characters;
 
-    if (!load_list_from_csv(&characters)){ 
+    if (!load_list_from_csv(&characters)){
       return 0;
     }
 

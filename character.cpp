@@ -1,5 +1,7 @@
+#include <iostream>
+#include <fstream>
 #include "character.h"
-
+using namespace std;
 
 Character::Character(){
   name = " ";

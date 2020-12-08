@@ -1,6 +1,5 @@
 #ifndef ROCK_CHARACTER_H
 #define ROCK_CHARACTER_H
-#include "character.h"
 
 class RockCharacter: public Character{
 private:
@@ -17,7 +16,7 @@ public:
 
   //PRE: -
   //POS: feeds the character. (?
-  
+
   void eat();
 };
 

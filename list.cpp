@@ -1,8 +1,12 @@
-#include "list.h"
-#include "character.h"
-#include "node.h"
 #include <iostream>
 #include <fstream>
+#include "list.h"
+#include "node.h"
+#include "character.h"
+#include "fire_character.h"
+#include "water_character.h"
+#include "air_character.h"
+#include "rock_character.h"
 using namespace std;
 
 
@@ -108,7 +112,7 @@ void List::show_character_stats(string name){
       std::cout << "◉ Elemento: " << current_character->get_element() <<'\n';
       std::cout << "◉ Escudo: " << current_character->get_shield() <<'\n';
       std::cout << "◉ HP: " << current_character->get_health() <<'\n';
-      std::cout << "◉ Energy: " << current_character->get_energy() <<'\n';
+      std::cout << "◉ Energia: " << current_character->get_energy() <<'\n';
       personaje_encontrado = true;
     }
   }

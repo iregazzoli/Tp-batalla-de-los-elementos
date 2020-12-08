@@ -1,6 +1,6 @@
 #ifndef FIRE_CHARACTER_H
 #define FIRE_CHARACTER_H
-#include "character.h"
+
 
 class FireCharacter: public Character{
 private:
@@ -14,7 +14,7 @@ public:
   //PRE: -
   //POS: returns a string = "Fire".
   string get_element();
-  
+
   //PRE: -
   //POS: feeds the character. (?
   void eat();

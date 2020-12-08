@@ -1,10 +1,5 @@
 #ifndef LIST_H
 #define LIST_H
-#include "character.h"
-#include "fire_character.h"
-#include "water_character.h"
-#include "air_character.h"
-#include "rock_character.h"
 #include "node.h"
 
 

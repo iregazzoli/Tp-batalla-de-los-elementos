@@ -26,7 +26,7 @@ public:
 
   //PRE: -
   //POS: returns a string = "no element".
-   virtual string get_element();
+   virtual string get_element() = 0;
   //PRE: -
   //POS: returns the name of the character.
   string get_name();
@@ -45,6 +45,6 @@ public:
 
   //PRE: -
   //POS: -
-  virtual void eat();
+  virtual void eat() = 0;
 };
 #endif

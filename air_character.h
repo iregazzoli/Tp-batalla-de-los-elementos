@@ -1,6 +1,6 @@
 #ifndef AIR_CHARACTER_H
 #define AIR_CHARACTER_H
-#include "character.h"
+
 
 class AirCharacter: public Character{
 public:
@@ -11,7 +11,7 @@ public:
   //PRE: -
   //POS: returns a string = "Air".
   string get_element();
-  
+
   //PRE: -
   //POS: feeds the character. (?
   void eat();
