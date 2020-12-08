@@ -4,7 +4,7 @@
 
 class FireCharacter: public Character{
 private:
-  bool have_wood;
+  bool wood;
 public:
 
   //PRE: -
@@ -16,7 +16,7 @@ public:
   string get_element();
 
   //PRE: -
-  //POS: feeds the character. (?
+  //POS: feeds the character. 
   void eat();
 };
 

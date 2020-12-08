@@ -4,7 +4,7 @@
 using namespace std;
 
 Character::Character(){
-  name = " ";
+  name = "";
   shield = 0;
   health = 0;
   energy = 0;

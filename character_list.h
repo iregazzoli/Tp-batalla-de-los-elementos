@@ -1,22 +1,22 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef CHARACTERLIST_H
+#define CHARACTERLIST_H
 #include "node.h"
 
 
-class List{
+class CharacterList{
 private:
   Node* first_pointer;
   Node* last_pointer;
   Node* current_pointer;
 
 public:
-  List();
-  ~List();
+  CharacterList();
+  ~CharacterList();
   void restart_current_pointer();
 
   // PRE: -
   // POS: returns bool depending if the current_pointer is not equal to Null or not.
-  bool next_node_not_null();
+  bool next_node_exists_null();
 
   //PRE: -
   //POS: returns a pointer to the current character and makes current_pointer point to the next node.

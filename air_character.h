@@ -13,7 +13,7 @@ public:
   string get_element();
 
   //PRE: -
-  //POS: feeds the character. (?
+  //POS: feeds the character. 
   void eat();
 };
 

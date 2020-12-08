@@ -4,13 +4,13 @@
 
 FireCharacter::FireCharacter(string name, int shield, int health, int energy) :
                 Character(name, shield, health, energy){
-  this->have_wood = true;
+  this->wood = true;
 }
 
 void FireCharacter::eat(){
   Character::eat();
   std::cout << "Vida antes de comer: " << health << '\n';
-  if(have_wood){
+  if(wood){
 
     if(health == 100){
       std::cout << "Vida llena no fue posible alimentar este personaje." << '\n';

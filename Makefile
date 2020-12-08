@@ -1,5 +1,5 @@
-tp2: main.o character.o list.o node.o fire_character.o water_character.o air_character.o rock_character.o
-		g++ main.o character.o list.o node.o fire_character.o water_character.o air_character.o rock_character.o -o tp2
+tp2: main.o character.o character_list.o node.o fire_character.o water_character.o air_character.o rock_character.o
+		g++ main.o character.o character_list.o node.o fire_character.o water_character.o air_character.o rock_character.o -o tp2
 
 # testo: test.o character.o list.o node.o fire_character.o
 # 		g++ test.o character.o list.o node.o fire_character.o -o testo
@@ -10,8 +10,8 @@ main.o: main.cpp
 personaje.o: character.cpp
 	g++ -c character.cpp
 
-lista.o: list.cpp
-	g++ -c list.cpp
+character_list.o: character_list.cpp
+	g++ -c character_list.cpp
 
 node.o: node.cpp
 	g++ -c node.cpp

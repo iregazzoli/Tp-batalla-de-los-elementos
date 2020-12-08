@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "list.h"
+#include "character_list.h"
 #include "node.h"
 #include "character.h"
 #include "fire_character.h"
@@ -10,21 +10,21 @@
 using namespace std;
 
 
-List::List(){
+CharacterList::CharacterList(){
   first_pointer = 0;
   current_pointer = 0;
   last_pointer = 0;
 }
 
-void List::restart_current_pointer(){
+void CharacterList::restart_current_pointer(){
   current_pointer = first_pointer;
 }
 
-bool List::next_node_not_null(){
+bool CharacterList::next_node_exists_null(){
   return (current_pointer != 0);
 }
 
-Character* List::get_current_character(){
+Character* CharacterList::get_current_character(){
   Node* aux = current_pointer;
   current_pointer = current_pointer->get_next_node();
   Character* current_cha = aux->get_character();
@@ -32,12 +32,11 @@ Character* List::get_current_character(){
 }
 
 
-void List::add_character(Character* new_character){
+void CharacterList::add_character(Character* new_character){
 
   Node* new_node = new Node(new_character);
   if(empty())
     first_pointer = new_node;
-
   else
     last_pointer->change_pointer(new_node);
 
@@ -46,7 +45,7 @@ void List::add_character(Character* new_character){
 }
 
 
-void List::remove_character(string name){
+void CharacterList::remove_character(string name){
   bool character_removed = false;
   Node* current_aux_node = first_pointer;
   Character* current_character = current_aux_node->get_character();
@@ -91,20 +90,20 @@ void List::remove_character(string name){
   }
 }
 
-void List::show_characters_names(){
+void CharacterList::show_characters_names(){
   restart_current_pointer();
   std::cout << "\n";
   std::cout << "Los nombres de los personajes son:" << '\n';
-  while(next_node_not_null()){
+  while(next_node_exists_null()){
     Character* current_character = get_current_character();
     std::cout << current_character->get_name() << '\n';
   }
 }
 
-void List::show_character_stats(string name){
+void CharacterList::show_character_stats(string name){
   restart_current_pointer();
   bool personaje_encontrado = false;
-  while(next_node_not_null()){
+  while(next_node_exists_null()){
     Character* current_character = get_current_character();
     if(current_character->get_name() == name){
       std::cout << "Personaje:" << '\n';
@@ -120,10 +119,10 @@ void List::show_character_stats(string name){
     std::cout << "Personaje no encontrado." << '\n';
 }
 
-void List::feed_character(string name){
+void CharacterList::feed_character(string name){
   restart_current_pointer();
   bool personaje_encontrado = false;
-  while(next_node_not_null()){
+  while(next_node_exists_null()){
     Character* current_character = get_current_character();
     if(current_character->get_name() == name){
       current_character->eat();
@@ -134,15 +133,15 @@ void List::feed_character(string name){
     std::cout << "Personaje no encontrado." << '\n';
 }
 
-Node* List::get_first_pointer(){
+Node* CharacterList::get_first_pointer(){
   return first_pointer;
 }
 
-bool List::empty(){
+bool CharacterList::empty(){
   return (first_pointer == 0);
 }
 
-List::~List(){
+CharacterList::~CharacterList(){
   while(! empty()){
     Node* aux = first_pointer;
     first_pointer = aux->get_next_node();

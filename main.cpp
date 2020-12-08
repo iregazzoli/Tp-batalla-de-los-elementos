@@ -2,7 +2,7 @@
 #include <fstream>
 #include <stdlib.h> // includes random
 #include <cctype>
-#include "list.h"
+#include "character_list.h"
 #include "node.h"
 #include "character.h"
 #include "fire_character.h"
@@ -11,7 +11,7 @@
 #include "rock_character.h"
 using namespace std;
 
-bool load_list_from_csv(List* characters){
+bool load_list_from_csv(CharacterList* characters){
   ifstream file;
   file.open("personajes.csv");
 
@@ -79,7 +79,7 @@ void show_menu(){
   cout << "Ingrese la opcion deseada: ";
 }
 
-void add_character(List* characters){
+void add_character(CharacterList* characters){
 
   string name;
   string elements[4] = {"Fuego", "Agua", "Tierra", "Aire"};
@@ -108,32 +108,32 @@ void add_character(List* characters){
   }
 }
 
-void remove_character(List* characters){
+void remove_character(CharacterList* characters){
   string name;
   std::cout << "Ingrese el nombre del personaje que desea eliminar: ";
   std::cin >> name;
   characters->remove_character(name);
 }
 
-void show_characters_names(List* characters){
+void show_characters_names(CharacterList* characters){
   characters->show_characters_names();
 }
 
-void show_character_stats(List* characters){
+void show_character_stats(CharacterList* characters){
   string name;
   std::cout << "Ingrese el nombre del personaje cuyos detalles desea ver: ";
   std::cin >> name;
   characters->show_character_stats(name);
 }
 
-void feed_character(List* characters){
+void feed_character(CharacterList* characters){
   string name;
   std::cout << "Ingrese el nombre del personaje que desea alimentar: ";
   std::cin >> name;
   characters->feed_character(name);
 }
 
-bool interpretate_user_input(int user_input, List* characters){
+bool interpret_user_input(int user_input, CharacterList* characters){
   switch (user_input) {
   case 1:
     add_character(characters);
@@ -174,7 +174,7 @@ bool check_input(char user_input){
 }
 
 int main(){
-    List characters;
+    CharacterList characters;
 
     if (!load_list_from_csv(&characters)){
       return 0;
@@ -193,7 +193,7 @@ int main(){
         cin >> user_input;
       }
       int int_user_input = user_input[0] - '0';
-      end_program = interpretate_user_input(int_user_input, &characters);
+      end_program = interpret_user_input(int_user_input, &characters);
     }
   return 0;
 }
